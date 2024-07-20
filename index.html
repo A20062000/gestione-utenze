@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Utenze</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestione Utenze</h1>
+        <div id="user-list">
+            <button class="user-button" onclick="startValidation('CTA_teamsRA1')">CTA_teamsRA1</button>
+            <button class="user-button" onclick="startValidation('CTA_teamsRA2')">CTA_teamsRA2</button>
+            <button class="user-button" onclick="startValidation('CTA_teamsRA3')">CTA_teamsRA3</button>
+            <button class="user-button" onclick="startValidation('CTA_teamsRA4')">CTA_teamsRA4</button>
+            <button class="user-button" onclick="startValidation('CTA_teamsRA5')">CTA_teamsRA5</button>
+            <button class="user-button" onclick="startValidation('CTA_teamsRA6')">CTA_teamsRA6</button>
+        </div>
+        <div id="validation-periods">
+            <h2>Periodi di Validazione</h2>
+            <ul id="period-list">
+                <!-- Lista delle validazioni -->
+            </ul>
+        </div>
+    </div>
+
+    <div id="validation-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Inizio Validazione</h2>
+            <form id="validation-form">
+                <label for="email">Email destinatario:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="start-time">Inizio Validazione:</label>
+                <input type="datetime-local" id="start-time" name="start-time" required>
+                <label for="end-time">Fine Validazione:</label>
+                <input type="datetime-local" id="end-time" name="end-time" required>
+                <label for="ticket-number">Numero Ticket di Riferimento:</label>
+                <input type="text" id="ticket-number" name="ticket-number" required>
+                <input type="hidden" id="selected-user" name="selected-user">
+                <button type="button" onclick="submitValidation()">Inizia Validazione</button>
+            </form>
+        </div>
+    </div>
+
+    <button onclick="redirectToService()">Vai al Sito di Accesso al Servizio</button>
+
+    <!-- Usa una versione specifica di EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("i5HDM0flJb2ApNvcS"); // Sostituisci TCjUhg2AjcvPjOleX con la tua Public Key di EmailJS
+       })();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
